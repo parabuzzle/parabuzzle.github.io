@@ -466,6 +466,12 @@ a:visited { color: #205caa; }
   background: url(/img/mike.jpg) no-repeat;
   background-size: 100px 100px;
   color: transparent;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
   /*box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);*/
@@ -493,4 +499,8 @@ a:visited { color: #205caa; }
 
 #page-links a:hover {
   color: #FF0000;
+}
+
+.small {
+  font-size: 12px;
 }
