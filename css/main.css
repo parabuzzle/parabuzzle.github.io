@@ -6,7 +6,7 @@
   padding: 0;
 }
 
-html, body { height: 100%; }
+html, body { height: 100%;}
 
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -14,6 +14,7 @@ body {
   line-height: 1.5;
   font-weight: 300;
   background-color: #fdfdfd;
+  background: #aaa;
 }
 
 h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
@@ -45,6 +46,7 @@ a:visited { color: #205caa; }
   border-bottom: 1px solid #e8e8e8;
   min-height: 56px;
   background-color: white;
+  background-color: #e8e8e8;
 }
 
 .site-title,
@@ -83,7 +85,7 @@ a:visited { color: #205caa; }
 .site-footer {
   border-top: 1px solid #e8e8e8;
   padding: 30px 0;
-  background:3;
+  color:#333;
 }
 
 .footer-heading {
@@ -94,6 +96,14 @@ a:visited { color: #205caa; }
 }
 
 .site-footer .column { float: left; margin-bottom: 15px; }
+
+.site-footer a {
+  color:#000;
+}
+
+.site-footer a:hover {
+  color:#FFFFFF;
+}
 
 .footer-col-1 {
   width: 270px; /*fallback*/
@@ -125,7 +135,7 @@ a:visited { color: #205caa; }
 .site-footer p {
   font-size: 15px;
   letter-spacing: -.3px;
-  color: #828282;
+  color: #333;
 }
 
 .github-icon-svg,
@@ -144,6 +154,8 @@ a:visited { color: #205caa; }
 .page-content {
   padding: 30px 0;
   background-color: #fff;
+  min-height: 400px;
+  _height: 400px;
 }
 
 
@@ -468,7 +480,7 @@ a:visited { color: #205caa; }
   text-align: center;
   font-size:14px;
   font-weight: bold;
-  color:#aaa;
+  color:#888;
 }
 
 #page-links {
