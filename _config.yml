@@ -17,3 +17,6 @@ instagram_username: parabuzzle
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+gems:
+  - jekyll-redirect-from
