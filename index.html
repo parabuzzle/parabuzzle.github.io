@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="home">
+
+
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <div class="post-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
+        <div class="post-date">{{ post.date | date: "%b %-d, %Y" }}</div>
+        {% if post.preview %}
+          <div class="post-preview"> {{ post.preview }}...</div>
+        {% else %}
+          <div class="post-preview">{{ post.content | strip_html | truncatewords:25}}</div>
+        {% endif %}
+        <div class="readon"><a href="{{post.url | prepend: site.baseurl}}">READ ON</a></div>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+
+</div>
