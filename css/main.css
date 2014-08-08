@@ -185,7 +185,7 @@ a:visited { color: #205caa; }
   font-size: 12px;
   font-weight:bold;
   padding:12px;
-  border-bottom:1px solid #ccc;
+  border-bottom:1px solid #e8e8e8;
 }
 
 .posts .readon a:hover {
@@ -421,7 +421,7 @@ a:visited { color: #205caa; }
 
   .site-nav .page-link {
     display: block;
-    text-align: right;
+    text-align: left;
     line-height: 1.25;
     padding: 5px 10px;
     margin: 0;
@@ -469,4 +469,16 @@ a:visited { color: #205caa; }
   font-size:14px;
   font-weight: bold;
   color:#aaa;
+}
+
+#page-links {
+  color:#c9c9c9;
+}
+
+#page-links a {
+  color: #2a7ae2;
+}
+
+#page-links a:hover {
+  color: #FF0000;
 }
