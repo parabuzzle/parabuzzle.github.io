@@ -7,8 +7,6 @@ permalink: /projects/
 
   * <a target="_blank" href="http://www.mikeheijmans.com/obstore/">http://www.mikeheijmans.com/obstore/</a>
     * <span class="small">ObStore is a smart persistent Object store for ruby.</span>
-  * <a target="_blank" href="http://github.com/parabuzzle/sort-lines">http://github.com/parabuzzle/sort-lines</a>
-    * <span class="small">Contributed reverse-sort to the Atom editor sort-lines project</span>
   * <a target="_blank" href="http://www.mikeheijmans.com/humanize_boolean">http://www.mikeheijmans.com/humanize_boolean</a>
     * <span class="small">A gem to add the humanize method to booleans.</span>
   * <a target="_blank" href="http://www.mikeheijmans.com/credstore">http://www.mikeheijmans.com/credstore</a>
