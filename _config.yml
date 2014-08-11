@@ -20,3 +20,4 @@ permalink: pretty
 
 gems:
   - jekyll-redirect-from
+  - emoji_for_jekyll
