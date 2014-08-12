@@ -533,3 +533,29 @@ a:visited { color: #205caa; }
   font-weight:bold;
   color:#888;
 }
+
+
+.project-box {
+  padding:10px;
+  border-bottom: 1px #333 solid;
+}
+
+.project-box h3 {
+  padding:0px;
+  margin:0px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.project-box .description {
+  padding:10px;
+}
+
+.project-box .link {
+  margin-top:20px;
+  font-size:13px;
+}
+
+.project-box h3 a {
+  color: #333;
+}
