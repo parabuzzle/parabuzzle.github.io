@@ -15,8 +15,11 @@ instagram_username: parabuzzle
 
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 permalink: pretty
+highlighter: pygments
+lsi:         false
+excerpt_separator: "\n\n"
 
 gems:
   - jekyll-redirect-from

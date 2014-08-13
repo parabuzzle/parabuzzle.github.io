@@ -13,7 +13,7 @@ layout: default
         {% if post.preview %}
           <div class="post-preview"> {{ post.preview }}...</div>
         {% else %}
-          <div class="post-preview">{{ post.content | strip_html | truncatewords:25}}</div>
+          <div class="post-preview">{{ post.content | strip_html | truncatewords:45}}</div>
         {% endif %}
         <div class="readon"><a href="{{post.url | prepend: site.baseurl}}">READ ON</a></div>
       </li>
