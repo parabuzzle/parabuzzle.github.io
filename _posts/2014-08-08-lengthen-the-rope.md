@@ -6,6 +6,7 @@ categories: culture
 tags: [Tech, Culture, Innovation, Remote, Telecommute, WFH, working from home, DevOps, Commuting]
 og_type: article
 og_description: The DevOps culture is one of late nights and early mornings. Its a culture rooted in the good old days of SysAdmin cowboys and cowgirls. Let us thrive and you'll never be sorry.
+disqus_id: 2
 ---
 
 The DevOps culture is one of late nights and early mornings. Its a culture rooted in the good old days of SysAdmin cowboys and cowgirls. We were the computer hackers and miracle workers. Never content with the tools we had, we built bigger and better tools to facilitate our laziness as programmers. This let us consistently go off and find a sharper and bloodier edge of technology to play with and bend to our will. 

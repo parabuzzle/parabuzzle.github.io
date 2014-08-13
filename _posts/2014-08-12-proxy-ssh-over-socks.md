@@ -7,6 +7,7 @@ tags: [Tech, System Administration, Git, SSH, Tricks, DevOps]
 preview: Today I had a strange problem. I needed to work with an internal git repo behind a firewall from my home on my personal laptop. The git server only allows SSH connections (git@git.corp.example.com) and doesn't support HTTP requests.
 og_type: article
 og_description: The simple way to proxy SSH over a SOCKS proxy without any additional software.
+disqus_id: 3
 ---
 
 Today I had a strange problem. I needed to work with an internal git repo behind a firewall from my home on my personal laptop (read: no vpn client). The git server only allows SSH connections (git@git.corp.example.com) and doesn't support HTTP requests.

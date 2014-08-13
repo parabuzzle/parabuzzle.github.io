@@ -8,6 +8,7 @@ redirect_from: "/2014/08/hyper-collaboration-is-not-innovation/"
 tags: [Tech, Culture, Innovation, Remote, Telecommute, WFH, working from home]
 og_type: article
 og_description: There is a fallacy that remote workers can't collaborate effectively. I want to clear that up right meow!
+disqus_id: 1
 ---
 
 So there is a fallacy that remote workers (or telecommuters or people that work from home) can't collaborate effectively. Time and time again I hear that collaboration is something that only thrives in an office environment where everyone is sitting in the same room and working. I want to clear a few things up here. I don't believe this to be the case and I am going to explain to you why I feel this way.
