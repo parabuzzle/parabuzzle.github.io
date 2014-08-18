@@ -7,7 +7,7 @@ tags: [Tech, Rants, WTF, Apple, Thunderbolt, Fail]
 preview: My current work setup is a 15" MacBook Pro Retina connected to a 27" Apple Thunderbolt Retina display. I will start off by saying that the Thunderbolt display is a very pretty display and the colors are crisp and clean... when it works
 og_type: article
 og_description: Thunderbolt displays are junk and not worth half the money Apple wants for them. 
-disqus_id: 4
+disqus_id: 5
 ---
 
 My current work setup is a 15" MacBook Pro Retina connected to a 27" Apple Thunderbolt Retina display. I will start off by saying that the Thunderbolt display is a very pretty display and the colors are crisp and clean... when it works.
