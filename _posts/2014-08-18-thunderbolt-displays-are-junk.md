@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Apple's Thunderbolt Display is Junk"
+title:  "Apple Thunderbolt Display is Junk"
 date:   2014-08-18 12:00:00
 categories: Rant
 tags: [Tech, Rants, WTF, Apple, Thunderbolt, Fail]
