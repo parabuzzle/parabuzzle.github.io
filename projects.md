@@ -78,11 +78,11 @@ permalink: /projects/
 </div>
 
 <div class="project-box">
-  <h3><img src="/img/pkg.png" width="50px"/> <a target="_blank" href="http://www.mikeheijmans.com/bender">Bender</a></h3>
+  <h3><img src="/img/pkg.png" width="50px"/> <a target="_blank" href="http://www.benderirc.com/">Bender</a></h3>
   <div class="description">
     The IRC bot and Webserver that uses Spunk. If you want an extendable IRC bot that just works, look no further, Bender is here for all your IRC needs. Bender uses Spunk... so you know its good.
     <div class="link">
-      <a target="_blank" href="http://www.mikeheijmans.com/bender">Docs</a> | 
+      <a target="_blank" href="http://www.benderirc.com/">Docs</a> | 
       <a target="_blank" href="http://github.com/parabuzzle/bender/">Code</a> | 
       <a target="_blank" href="http://github.com/parabuzzle/bender/archive/master.zip">Download</a>
     </div>
