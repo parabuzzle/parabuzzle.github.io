@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Mike Heijmans has over 15 years of expierence in the tech industry. He is a Builder, Rubyist, DevOps engineer, public speaker, and open source advocate. 
+Mike Heijmans has over 15 years of experience in the tech industry. He is a Builder, Rubyist, DevOps engineer, public speaker, and open source advocate. 
 
 Mike has worked at startups and large web companies specializing, most recently, in distributed data systems such as HBase and Cassandra. 
 

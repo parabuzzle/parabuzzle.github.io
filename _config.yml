@@ -1,7 +1,7 @@
 # Site settings
 title: Mike Heijmans
 email: parabuzzle@gmail.com
-description: "Mike Heijmans has over 15 years of expierence in the tech industry. He is a Builder, Rubyist, DevOps engineer, public speaker, and open source advocate."
+description: "Mike Heijmans has over 15 years of experience in the tech industry. He is a Builder, Rubyist, DevOps engineer, public speaker, and open source advocate."
 baseurl: ""
 url: "http://www.mikeheijmans.com"
 timezone: America/Los_Angeles
