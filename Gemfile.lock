@@ -115,3 +115,4 @@ PLATFORMS
 DEPENDENCIES
   emoji_for_jekyll
   github-pages
+  jemoji
