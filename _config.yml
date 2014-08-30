@@ -23,5 +23,4 @@ excerpt_separator: "\n\n"
 
 gems:
   - jekyll-redirect-from
-  - emoji_for_jekyll
   - jemoji
