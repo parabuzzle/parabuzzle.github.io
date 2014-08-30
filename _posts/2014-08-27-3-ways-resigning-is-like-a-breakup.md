@@ -3,10 +3,11 @@ layout: post
 title:  "3 Ways Resigning is Like a Breakup"
 date:   2014-08-27 12:00:00
 categories: Culture
-tags: [General, Culture]
+tags: [General, Culture, Quiting, Advice]
 og_type: article
 og_description: Changing jobs is hard, but if you think of it like a breakup, you can keep your sanity through the process
 og_image: http://www.mikeheijmans.com/img/postimgs/breakup.jpg
+disqus_id: 6
 ---
 
 I recently decided to change jobs and move on to a startup after 6+ years at my job with a large (and prominent) web corporation. I've learned a ton in my time there but it seemed to be the right time for me to move on to something new for a little while. I don't have much experience resigning from jobs (most of my moves have been from layoffs or acquisitions), but I did make an interesting observation. The process of resigning resembles, very closely, the process of breaking up with a long-term partner.
