@@ -5,6 +5,7 @@ description: "Mike Heijmans has over 15 years of experience in the tech industry
 baseurl: ""
 url: "http://www.mikeheijmans.com"
 timezone: America/Los_Angeles
+paginate: 5
 
 twitter_username: parabuzzle
 github_username:  parabuzzle
