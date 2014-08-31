@@ -8,7 +8,7 @@ layout: default
     {% unless site.skip_social == 'true' %}
       <div class='shareaholic-canvas' data-app='share_buttons' data-app-id='7476078'></div>
     {% endunless %}
-    <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %} • filed under: {{page.categories | join: '/'}}</p>
   </header>
 
   <article class="post-content">
