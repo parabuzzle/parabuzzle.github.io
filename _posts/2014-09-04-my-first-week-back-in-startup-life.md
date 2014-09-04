@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  "My First Week Back in the Startup Life"
-date:   2014-08-30 12:00:00
+date:   2014-09-04 12:00:00
 categories: Culture
 preview: Last week was my first week working in the small tech startup world again. If you read my last post, you know that I left my corporate cubicle job at a large and prominent web company for a job at a small tech startup
 tags: [Tech, Culture, Startup, Observations]
 og_type: article
-og_description: Last week was my first week working in the small tech startup world again. If you read my last post, you know that I left my corporate cubicle job at a large and prominent web company for a job at a small tech startup.
+og_description: Last week was my first week working in the small tech startup world again. If you read my last post, you know that I left my corporate cubicle job at a large and prominent web company for a job at a small tech startup. Here's how its going.
 disqus_id: 7
 ---
 
