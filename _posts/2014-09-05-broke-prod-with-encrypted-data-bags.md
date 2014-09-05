@@ -6,7 +6,7 @@ categories: Chef
 preview: Chef has so many ways of working with data, some people call it "getting Chefed in the face". Well, I got "Chefed" in the ass last week with encrypted data bags
 tags: [Tech, Chef, Startup, Failures, Fixes, Tips, Tricks]
 og_type: article
-og_description: Chef has so many ways of working with data, some people call it "getting Chefed in the face". Well, I got "Chefed" in the ass last week with encrypted data bags.
+og_description: Chef has so many ways of working with data, some people call it getting Chefed in the face. Well, I got Chefed in the ass last week with encrypted data bags.
 disqus_id: 8
 ---
 
