@@ -108,7 +108,7 @@ namespace :keys do
   task :encrypt do
     passphrase = ENV['KEYS_PASSPHRASE']
     raise "\nMissing ENV['KEYS_PASSPHRASE'] environment variable\n" unless passphrase
-    files = ['.chef/deployuser.pem', '.chef/data_bag_secret.pem', '.chef/app-validator.pem']
+    files = ['.chef/deployuser.pem', '.chef/data_bag_secret.pem']
     files.each do |file|
       File.open("#{file}.enc", 'w') {|fh|
         puts "encrypting #{file} as #{file}.enc"
@@ -121,7 +121,7 @@ namespace :keys do
   task :decrypt do
     passphrase = ENV['KEYS_PASSPHRASE']
     raise "\nMissing ENV['KEYS_PASSPHRASE'] environment variable\n" unless passphrase
-    files = ['.chef/deployuser.pem', '.chef/data_bag_secret.pem', '.chef/app-validator.pem']
+    files = ['.chef/deployuser.pem', '.chef/data_bag_secret.pem']
     files.each do |file|
       File.open("#{file}", 'w') {|fh|
         puts "decrypting #{file}.enc as #{file}"
@@ -138,7 +138,7 @@ This provides the following rake tasks:
   * ```rake keys:encrypt``` to encrypt in place
   * ```rake keys:decrypt``` to decrypt in place
 
-As you can see here, we're saving 3 keys: the validator, the user's key, and the data bag key
+As you can see here, we're saving 2 keys: the user's key and the Data Bag key
 
 All of the encryption is done with the passphrase provided by the environment variable ```KEYS_PASSPHRASE```. This is what we set on Codeship to be able to decrypt the keys.
 
