@@ -123,7 +123,7 @@ namespace :keys do
     raise "\nMissing ENV['KEYS_PASSPHRASE'] environment variable\n" unless passphrase
     files = ['.chef/deployuser.pem', '.chef/data_bag_secret.pem']
     files.each do |file|
-      File.open("#{file}", 'w') {|fh|
+      File.open(file, 'w') {|fh|
         puts "decrypting #{file}.enc as #{file}"
         fh.puts(AESCrypt.decrypt(File.read("#{file}.enc"), passphrase))
       }
