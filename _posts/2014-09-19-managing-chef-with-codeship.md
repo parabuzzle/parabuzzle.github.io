@@ -3,10 +3,11 @@ layout: post
 title:  Managing Chef with Codeship
 date:   2014-09-19 12:00:00
 categories: Chef
-preview: A simple step-by-step guide to setting up Codeship.io to test and deploy Chef changes to your Chef server automatically.
+#preview: A simple step-by-step guide to setting up Codeship.io to test and deploy Chef changes to your Chef server automatically.
 tags: [Tech, Chef, Startup, Tips, Tricks, Codeship]
 og_type: article
 og_description: A simple step-by-step guide to setting up Codeship.io to test and deploy Chef changes to your Chef server automatically.
+og_image: http://www.mikeheijmans.com/img/postimgs/chef-logo.jpg
 disqus_id: 9
 ---
 
