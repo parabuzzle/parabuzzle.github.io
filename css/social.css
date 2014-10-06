@@ -16,7 +16,7 @@ ul.social-profile li {
 	float: left;
 	margin: 10px 10px 0 0;
 }
-	
+
 ul.social-profile li {
 	margin: 10px 0 0 10px;
 }
@@ -79,10 +79,10 @@ ul.social-profile li.foursquare a {
 ul.social-profile li.foursquare a:hover {
 	background-position: -302px -43px;
 }
-ul.social-profile li.viemo a {
+ul.social-profile li.vimeo a {
 	background-position: -345px 0;
 }
-ul.social-profile li.viemo a:hover {
+ul.social-profile li.vimeo a:hover {
 	background-position: -345px -43px;
 }
 ul.social-profile li.myspace a {
