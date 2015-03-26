@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/parabuzzle
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.mikeheijmans.com
+  * I am parabuzzle (https://keybase.io/parabuzzle) on keybase.
+  * I have a public key with fingerprint 6BB3 8B60 290D 7D70 73F8  6AC6 47C8 1660 6AE2 998A
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "6bb38b60290d7d7073f86ac647c816606ae2998a",
+            "host": "keybase.io",
+            "key_id": "47c816606ae2998a",
+            "kid": "01011f8ff773bc7531c876d60bfbf64ff4536b50716c855b24170549001542997d300a",
+            "uid": "28595b52f787db8fcc642825d0b17419",
+            "username": "parabuzzle"
+        },
+        "service": {
+            "hostname": "www.mikeheijmans.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1427396181,
+    "expire_in": 157680000,
+    "prev": "309c119fbab43e9ca81f9ec7288445c9412ec71049cec62611d9509e29b5dc2d",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.8
+Comment: https://keybase.io/crypto
+
+yMIvAnicbZJZaFRJFIY7bqMBQUHBBHzIFRe0DVV3qaXFZSQRUYKKRnQiNLfq1k3K
+JPe2t7uzdE8j7gQR1AcfxHGiuCRgnEFhUDOB6AhmMmTCDBpDjMYNEVziQ1ADbnWD
+vlkvxfnrP1+dczg3p46P5Oe1pYcrmmH3wbx/rq9JR8pnbC7Pasx3GrVYVqsWY5cr
+vUoRJALppbSYhhgzCENAp8DBDgbYcAmyOTIxJxAhgGyhU0psLapV+ckwQ2GYnRTF
+0leaCuLSUep3/NVjDwACCF3iuhgbjGPLgJxg5CDAXOYi03VNy0DMAhgiTiyL6SbE
+wDIpANAyFQo7BgAhLj2G04lFLWbpLibYYcTlqlSd6JYDGMQmpKExKQLPrhXKnbAD
+m6UzmRqh5aKa0uskF+EQwl6+eurr64trZbWoEnJ7re0li7lfqyiJwE/53K9RjqpU
+KhELAanGxFiGYPGvrDiTnqMGqhLqRJCUvqfFoHLylAzh0NSxQREkMKqJhoQMRFyG
+DgsjAtQJvxF1CmkAyiGkLrOZaQjKbQJdKjjWCTFNi1MT6iqCwKRccKQjCB1qAapm
+zSyH644WdrfD87UYVWXalQqZlJWenUoHqvUbndsmRPLyI5MmjgtXIpI/Zdq3RZlc
++sOn5T93ZS70lT84suNdn7HAP/9jZdnzXKbn2b4jqPB+zVDBsfbLt9aP/t9zqeTl
+bjpnZNap582vZdG7G5uuw/bdZEXn2rb8opqmddrsbPbVzF8GnFfdP83p2Dzx+LxZ
+MxuLsi37H6+/Of1adGFf02/9fx2y4nfO3l1yUl6RuXVt2tHivbdXv4QDJysG9/Q1
+LXj7uWTxsp31LYeubnwRyH+fbji8v+VE/9uysg/ndz3584/mRWdOXegqaOi9+vvF
+nsEDt96s3tJcPu/R3y86WkH3yOKVhasGtuUNRgt6W3LTvI57W/+jO0tHG4Y/jvDY
+/Iejc9/7FU+GzMLHSy//evpcaWtJdaYpt2h47ugXK080lg==
+=K5+u
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/parabuzzle
+
+==================================================================
