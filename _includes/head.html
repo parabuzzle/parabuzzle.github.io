@@ -11,14 +11,15 @@
     {% if page.og_type %}<meta property="og:type" content="{{page.og_type}}"/>{% else %}<meta property="og:type" content="blog"/>{% endif %}
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"/>
     {% if page.og_description %}<meta property="og:description" content="{{ page.og_description }}"/> {% else %}<meta property="og:description" content="{{ site.description }}"/>{% endif %}
-    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>    
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
     {% if page.og_image %}<meta property="og:image" content="{{page.og_image}}"/>{% else %}<meta property="og:image" content="http://www.mikeheijmans.com/img/mike.jpg"/>{% endif %}
 
     <!-- Twitter Card Stuff -->
-    {% if page.twitter_card %}<meta property="twitter:card" content="{{page.twitter_card}}"/>{% else %}<meta property="twitter:card" content="summary"/>{% endif %}
+    {% if page.twitter_card %}<meta property="twitter:card" content="{{page.twitter_card}}"/>{% else %}<meta property="twitter:card" content="summary_large_image"/>{% endif %}
+    <meta name="twitter:site" content="@parabuzzle"/>
     <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"/>
     {% if page.og_description %}<meta property="twitter:description" content="{{ page.og_description }}"/> {% else %}<meta property="twitter:description" content="{{ site.description }}"/>{% endif %}
-    <meta property="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>    
+    <meta property="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
     {% if page.og_image %}<meta property="twitter:image" content="{{page.og_image}}"/>{% else %}<meta property="twitter:image" content="http://www.mikeheijmans.com/img/mike.jpg"/>{% endif %}
 
     <!-- Custom CSS -->
@@ -29,6 +30,6 @@
     <!-- TypeKit -->
     <script type="text/javascript" src="//use.typekit.net/wcr1wgz.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	
+
 
 </head>
