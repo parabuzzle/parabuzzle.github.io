@@ -7,7 +7,6 @@ preview: Over the weekend I decided to setup one of my opensource projects to bu
 tags: [CD, CI, CircleCI, Continious Deployment, Docker]
 og_type: article
 og_description: Over the weekend I decided to setup one of my opensource projects to build its docker image, push it to the registry, and deploy that new container to my digital ocean server using CircleCI. It turned out to be super simple and I wanted to share all the details
-og_image: http://www.mikeheijmans.com/img/postimgs/ccidocker.png
 disqus_id: 12
 ---
 
