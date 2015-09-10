@@ -7,6 +7,11 @@ url: "http://www.mikeheijmans.com"
 timezone: America/Los_Angeles
 paginate: 5
 
+author:
+  name: Mike Heijmans
+  email: parabuzzle@gmail.com
+  uri: /about
+
 twitter_username: parabuzzle
 github_username:  parabuzzle
 facebook_username: parabuzzle
@@ -26,3 +31,4 @@ excerpt_separator: "\n\n"
 gems:
   - jekyll-redirect-from
   - jemoji
+  - jekyll-feed
