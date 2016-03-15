@@ -11,21 +11,21 @@ disqus_id: 13
 
 If you've created Docker containers and put them on the central registry then you know that you can have DockerHub do the builds for you using the "Automated Build" feature. This is a great feature for maintaining relatively stable projects with infrequent changes but if you're living the agile life and iterating quick and often, you're going to find yourself wanting more.
 
-What do I mean by "wanting more"? Well, first of all, the automated builds are great if you want to keep all of your iterations on the ```latest``` tag. Which for most, is exactly what you will want. You then manually push named tags (such as ```0.1``` or ```1.0```) or, alternatively tag the release on GitHub and go and update the build settings to build that new tag and map that Git tag to your Docker tag. For most projects this is exactly what you want to do. There is still the manual step of logging into DockerHub and updating the build settings with the new tag which is kind of annoying but not a show stopper.
+What do I mean by "wanting more"? Well, first of all, the automated builds are great if you want to keep all of your iterations on the `latest` tag. Which for most, is exactly what you will want. You then manually push named tags (such as `0.1` or `1.0`) or, alternatively tag the release on GitHub and go and update the build settings to build that new tag and map that Git tag to your Docker tag. For most projects this is exactly what you want to do. There is still the manual step of logging into DockerHub and updating the build settings with the new tag which is kind of annoying but not a show stopper.
 
 <img width="750" src="/img/postimgs/automated_build.png"/>
 
-What this should really be (Docker, pay attention), is automatic!! Yea, it should build all Git tags automatically unless overridden. Or, even better, a regex would be awesome. The build settings should let me say, "build every tag that matches ```release-(.*)``` as ```$1```" ... wouldn't that be great? Yea, it doesn't do that. (hint hint) but I digress...
+What this should really be (Docker, pay attention), is automatic!! Yea, it should build all Git tags automatically unless overridden. Or, even better, a regex would be awesome. The build settings should let me say, "build every tag that matches `release-(.*)` as `$1`" ... wouldn't that be great? Yea, it doesn't do that. (hint hint) but I digress...
 
-In my case, I need an auto versioning of my containers so that I create a new version on DockerHub for each merge to master for my particular project. This is why I ditched the automated build stuff altogether. The idea is to have a base version like ```1.0.0``` and then every merge to master will build a point version on top of it like ```1.0.0.0``` and ```1.0.0.1``` etc. This is more appropriate for agile style end-user apps (like webapps and such) because I have many build versions in the registry that I can choose from if I need to rollback or something similar. So for this case, it requires building using my own CI system. For this, I chose [CircleCI](http://circleci.com) because of their awesome Docker support.
+In my case, I need an auto versioning of my containers so that I create a new version on DockerHub for each merge to master for my particular project. This is why I ditched the automated build stuff altogether. The idea is to have a base version like `1.0.0` and then every merge to master will build a point version on top of it like `1.0.0.0` and `1.0.0.1` etc. This is more appropriate for agile style end-user apps (like webapps and such) because I have many build versions in the registry that I can choose from if I need to rollback or something similar. So for this case, it requires building using my own CI system. For this, I chose [CircleCI](http://circleci.com) because of their awesome Docker support.
 
-So, first things first, we need to setup a way of versioning our container and get the next version available. I put a ```VERSION``` file at the top-level of my repo and put the base version there. Then I wrote some ruby code to
+So, first things first, we need to setup a way of versioning our container and get the next version available. I put a `VERSION` file at the top-level of my repo and put the base version there. Then I wrote some ruby code to
 
   * read the VERSION file
   * hit the DockerHub api and get the current tags
   * then figure out the next available tag for the current base version
 
-```ruby
+~~~ ruby
 require 'httparty'
 
 # Read the base version from VERSION file.
@@ -77,11 +77,11 @@ def next_version
   build  += 1
   "#{base}.#{build}"
 end
-```
+~~~
 
 As you can see here, this just uses the DockerHub API to handle versioning of my container. I put all this into a Rakefile with the following tasks and :boom: we're ready for automation!
 
-```ruby
+~~~ ruby
 
 task :install_deps do
   sh 'gem install bundler'
@@ -105,11 +105,11 @@ task :build => :install_deps do
 end
 
 task :default => [:build, :push]
-```
+~~~
 
 Now we're ready to just run `rake build` and `rake push`. I just wired that into the circle.yml for CircleCI like so:
 
-```
+~~~
 machine:
   services:
     - docker
@@ -131,7 +131,7 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - rake push
-```
+~~~
 
 And I'm done. Now I get auto versioning of my containers with merges to master.
 

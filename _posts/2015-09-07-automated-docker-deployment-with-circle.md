@@ -27,7 +27,7 @@ Now that we have builds going we can configure our `circle.yml` and our deployme
 
 In the root of your repo's directory create a `circle.yml` file that looks like this:
 
-```yaml
+~~~ yaml
 machine:
   services:
     - docker
@@ -41,13 +41,13 @@ test:
   override:
     - docker run -d -p 4567:4567 parabuzzle/devopsdayssv-webapp; sleep 10
     - curl --retry 10 --retry-delay 5 -v http://localhost:4567/schedule.json
-```
+~~~
 
 What this config file is telling CircleCI to do is build the docker image as a dependency for this project. Then in the `test` section you can see that its running the built image, and testing that its responding properly. (you need to replace all my stuff with your stuff for your project of course)
 
 Once this builds, We should add the next piece to the file which is the deployment section, like this:
 
-```yaml
+~~~ yaml
 machine:
   services:
     - docker
@@ -68,13 +68,13 @@ deployment:
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push parabuzzle/devopsdayssv-webapp
-```
+~~~
 
 For this you need to add some environment variables to your project in the config section on CircleCI. You will need to add `DOCKER_EMAIL`, `DOCKER_USER`, & `DOCKER_PASS` so CircleCI can login to DockerHub and push your image to the registry. As you can see, we have a named deployment here called `hub` and for every build of the `master` branch it will login and push your freshly built container as the `latest` tag.
 
 But that still doesn't deploy the newly built container to your server(s). So we need to add another file into our repo. We'll call this `deploy.sh` and for ease, we'll also put it in the top level of the repo. (make sure you make it executable `chmod +x deploy.sh`)
 
-```bash
+~~~ bash
 #!/usr/bin/env bash
 
 echo "stopping running application"
@@ -90,7 +90,7 @@ ssh $DEPLOY_USER@$DEPLOY_HOST 'docker run -d --restart=always --name dodsv -p 80
 echo "success!"
 
 exit 0
-```
+~~~
 
 This is where the magic goes. You need to add 3 more things to your project on CircleCI. First, you need to add the 2 environment variables for `DEPLOY_USER` & `DEPLOY_HOST`. (I leave multiple host support as an exercise for you.) And lastly you need to add your ssh key for the user you set in `DEPLOY_USER` in the `ssh permissions` section for your project.
 
@@ -100,7 +100,7 @@ Neat huh? But we're not done yet! We need to tell CircleCI to run this script in
 
 So let's open that file back up and make some changes:
 
-```yaml
+~~~ yaml
 machine:
   services:
     - docker
@@ -122,6 +122,6 @@ deployment:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push parabuzzle/devopsdayssv-webapp
       - ./deploy.sh
-```
+~~~
 
 As you can see, we've changed the deployment name from `hub` to `production` because it seems more appropriate now. We'll still key off of builds of `master` and we still login and push to DockerHub... but we added a new command at the end. Its our new deployment script! Now when we run a build of `master` we will build a docker container, test that docker container, dist that docker container to DockerHub, and deploy that docker container to our server. :boom: BOOM :boom: DevOps.

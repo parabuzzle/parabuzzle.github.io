@@ -23,16 +23,16 @@ This guide is written for Codeship because we use Codeship but the fundamentals 
 
 ## Setup Your Repo
 
-There is some general setup that needs to happen. The first thing I did was created a ```Rakefile``` and ```Gemfile``` so that all the scripting on the build system was basically rake commands.
+There is some general setup that needs to happen. The first thing I did was created a `Rakefile` and `Gemfile` so that all the scripting on the build system was basically rake commands.
 
 
-We use [ChefDk](https://downloads.getchef.com/chef-dk/), but since Codeship doesn't have ChefDk as an option for a build environment, we need to manage the needed libraries with a ```Gemfile```. *(yes I know we could just install ChefDk in the setup process but its a bit bloated for what we need it for in the build environment) :tongue:*
+We use [ChefDk](https://downloads.getchef.com/chef-dk/), but since Codeship doesn't have ChefDk as an option for a build environment, we need to manage the needed libraries with a `Gemfile`. *(yes I know we could just install ChefDk in the setup process but its a bit bloated for what we need it for in the build environment) :tongue:*
 
 ### Setup a Gemfile
 
 In my Gemfile I have all the needed gems for the build system:
 
-```ruby
+~~~ ruby
 source "https://rubygems.org"
 
 gem "berkshelf", "~> 3.1.0"
@@ -41,10 +41,11 @@ gem 'foodcritic', "~> 4.0.0"
 gem 'knife-env-diff'
 gem 'unf'
 gem 'aescrypt'
-```
-This is so that we can setup our environment with ```bundle install```
+~~~
 
-*We'll get to the ```aescrypt``` gem later and what it's used for.*
+This is so that we can setup our environment with `bundle install`
+
+*We'll get to the `aescrypt` gem later and what it's used for.*
 
 ### Setup a Rakefile
 
@@ -56,7 +57,7 @@ In this example I'm just going to show you the Data Bag update piece and you can
 
 we can create a rake task for uploading all Data Bags like this:
 
-```ruby
+~~~ ruby
 namespace :databag do
 
   task :check_secret do
@@ -70,33 +71,33 @@ namespace :databag do
     end
   end # namesapce - databags:upload
 end # namespace - databags
-```
+~~~
 
-You would run this like this: ```rake databag:upload:all```
+You would run this like this: `rake databag:upload:all`
 
 Since we use encrypted Data Bags, I have a check_secret task that I use to make sure the key file is there before attempting to upload.. If it wasn't there, we run the risk up uploading data to chef in the clear.
 
 You probably also want tests in place so you should write a test task that does whatever testing you want. (I recommend [Test Kitchen](http://kitchen.ci)). For the purposes of this guide, we'll just hookup foodcritic, but you should do more than simple linting. :wink:
 
-```ruby
+~~~ ruby
 task :lint do
   sh 'foodcritic -f any ./cookbooks'
 end
-```
+~~~
 
-This task is run like this: ```rake lint``` and will fail the build if any foodcritic errors exist.
+This task is run like this: `rake lint` and will fail the build if any foodcritic errors exist.
 
 ## Setup Your Chef User
 
-You can decide to use your user or create a new one. In my case I created a deployment user on manage.opscode.com and pulled down that user's key (```deployuser.pem```). Either way you will need to get the key for the user you want to use on your build system. If you're running your own build system (like jenkins) you could just install the needed keys on your build slave and be done but with Codeship or any hosted service, that can be tricky.
+You can decide to use your user or create a new one. In my case I created a deployment user on manage.opscode.com and pulled down that user's key (`deployuser.pem`). Either way you will need to get the key for the user you want to use on your build system. If you're running your own build system (like jenkins) you could just install the needed keys on your build slave and be done but with Codeship or any hosted service, that can be tricky.
 
-I came up with a clever way to get them on the build instance that's self contained and secure. I encrypt the key files in place using the ```aescrypt``` gem (I told you we would get to that) and check in the AES encrypted version of the needed key files so that the build system can decrypt them at run time.
+I came up with a clever way to get them on the build instance that's self contained and secure. I encrypt the key files in place using the `aescrypt` gem (I told you we would get to that) and check in the AES encrypted version of the needed key files so that the build system can decrypt them at run time.
 
 ### Setup Encryption and Decryption
 
-You need to add the libraries and the rake tasks to your ```Rakefile```:
+You need to add the libraries and the rake tasks to your `Rakefile`:
 
-```ruby
+~~~ ruby
 # there is a bug in aescrypt that requires
 # we manually pull in base64
 require 'base64'
@@ -131,26 +132,27 @@ namespace :keys do
   end
 end #  namespace - keys
 
-```
+~~~
 
 This provides the following rake tasks:
 
-  * ```rake keys:encrypt``` to encrypt in place
-  * ```rake keys:decrypt``` to decrypt in place
+  * `rake keys:encrypt` to encrypt in place
+  * `rake keys:decrypt` to decrypt in place
 
 As you can see here, we're saving 2 keys: the user's key and the Data Bag key
 
-All of the encryption is done with the passphrase provided by the environment variable ```KEYS_PASSPHRASE```. This is what we set on Codeship to be able to decrypt the keys.
+All of the encryption is done with the passphrase provided by the environment variable `KEYS_PASSPHRASE`. This is what we set on Codeship to be able to decrypt the keys.
 
 So to finish up the repo setup you just need to do the following on your command line:
 
-```
+~~~
 export KEYS_PASSPHRASE=some_unique_passphrase
 rake keys:encrypt
 git add Rakefile Gemfile ./chef/*.enc
 git commit -m'add required files for CI'
 git push
-```
+~~~
+
 (or something like that) :smile:
 
 
@@ -166,17 +168,19 @@ Use the technology **"I want to create my own custom commands"**
 
 In the box labeled **"Modify your Setup Commands"** you need these commands:
 
-```
+~~~
 bundle install
 bundle exec rake keys:decrypt
-```
-*note: wrap your commands in ```bundle exec``` to ensure you have the gems from the bundle install*
+~~~
+
+*note: wrap your commands in `bundle exec` to ensure you have the gems from the bundle install*
 
 In the box labeled **"Modify your Test Commands"** you need your test commands:
 
-```
+~~~
 bundle exec rake lint
-```
+~~~
+
 So it should look like [this](https://www.evernote.com/shard/s6/sh/6f3bfb55-05b3-45eb-aae0-6749df206b3b/8533865904eb3d80fdd63f89d2881523/res/4cce1b3d-b855-46c0-a478-4fb5c288a475/skitch.png)
 
 ### Setup the Deployment Tab
@@ -185,9 +189,9 @@ On this tab you want to choose to use the **"Custom Script"**
 
 And in there you want to run all the commands to upload to the chef server. In our case here, its just the databag upload task:
 
-```
+~~~
 bundle exec rake databag:upload:all
-```
+~~~
 
 It should look like [this](https://www.evernote.com/shard/s6/sh/c6e2e105-c8dd-4d48-a51f-00ac075d936c/228808a13cca66fa96d0e03ab64a39e6/res/c10d1978-840c-4a4b-919e-bae58d7a75e2/skitch.png)
 
@@ -198,12 +202,12 @@ We're almost done.. We just need to provide Codeship with the passphrase to decr
 
 So on the Environment Tab you need to put your ENV variables:
 
-```
+~~~
 KEYS_PASSPHRASE=some_unique_passphrase
 USER=deployuser
-```
+~~~
 
-*note: the USER env variable is used in our ```knife.rb``` to set the user to use: ```user = ENV["USER"]```*
+*note: the USER env variable is used in our `knife.rb` to set the user to use: `user = ENV["USER"]`*
 
 It should look like [this](https://www.evernote.com/shard/s6/sh/c0d93cf0-40ff-4a80-bf4b-64b1dc865279/c3be32fce033fefdeabfa78f09516413/deep/0/Codeship---Hosted-continuous-integration-and-deployment.-Built-for-the-cloud..png)
 

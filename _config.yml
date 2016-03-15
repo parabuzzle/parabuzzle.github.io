@@ -22,7 +22,7 @@ vimeo_username: parabuzzle
 
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 permalink: pretty
 highlighter: rouge
 lsi:         false

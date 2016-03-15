@@ -24,11 +24,10 @@ We're going to use OpenSSL to do all of this. I'm doing this on my Mac but you c
 
 Verify you have the `openssl command`:
 
-```
-[07:13:06]heijmans@HolyCrap:~$ which openssl
-/usr/bin/openssl
-[07:13:12]heijmans@HolyCrap:~$
-```
+
+    [07:13:06]heijmans@HolyCrap:~$ which openssl
+    /usr/bin/openssl
+    [07:13:12]heijmans@HolyCrap:~$
 
 ## First we need a Key
 
@@ -36,21 +35,21 @@ You always need a key for a lock right? Otherwise it wouldn't be a lock now woul
 
 We need to use OpenSSL to generate an RSA key with a length of 2048 bits like this:
 
-```
-openssl genrsa -out your_website_name.key 2048
 
-# Change "your_website_name" to an appropriate name for your key
-```
+    openssl genrsa -out your_website_name.key 2048
+
+    # Change "your_website_name" to an appropriate name for your key
+
 
 Whamo! you have a key:
 
-```
-[07:17:01]heijmans@HolyCrap:~/demo$ openssl genrsa -out your_website_name.key 2048
-Generating RSA private key, 2048 bit long modulus
-....................................+++
-...+++
-e is 65537 (0x10001)
-```
+
+    [07:17:01]heijmans@HolyCrap:~/demo$ openssl genrsa -out your_website_name.key 2048
+    Generating RSA private key, 2048 bit long modulus
+    ....................................+++
+    ...+++
+    e is 65537 (0x10001)
+
 
 **DO NOT SHARE THIS KEY WITH ANYONE! IT IS YOUR IDENTITY FOR THE CERT WE GENERATE LATER!**
 
@@ -74,11 +73,11 @@ This command will ask you a series of questions to get information about the web
 
 We do this using OpenSSL:
 
-```
-openssl req -new -sha256 -key your_website_name.key -out your_website_name.csr
 
-# Again, change "your_website_name" to an appropriate name for your CSR
-```
+    openssl req -new -sha256 -key your_website_name.key -out your_website_name.csr
+
+    # Again, change "your_website_name" to an appropriate name for your CSR
+
 
 Here we used the key we generated in the first step to output a CSR
 
@@ -92,27 +91,27 @@ We use GeoTrust RapidSSL so we just have to paste the contents of the CSR in a t
 
 It should look something like this:
 
-```
------BEGIN CERTIFICATE REQUEST-----
-MIIDADCCAegCAQAwgZ0xCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlh
-MRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRswGQYDVQQKExJNeSBBd2Vzb21lIENv
-bXBhbnkxHTAbBgNVBAMTFHd3dy55b3VyLXdlYnNpdGUuY29tMSUwIwYJKoZIhvcN
-AQkBFhZhZG1pbkB5b3VyLXdlYnNpdGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
-AQ8AMIIBCgKCAQEA2V0dHAlFyLI/XaAfqmtdyq2K+iv/wEJycVYVTZ2a1X0Y2i+8
-8dhXg3y1f79wCFpqRWdccjQG2HesKOxzvrnrPfCc93f7k2kuRDzivNacnOsMw19W
-bVEcXU38qxnNMtJOqyYzl5Yh1VBojyTvuec3g/21IxWQGPV7QsZ6OAMkw09V8H/U
-CCT2F+JkFPkP/QHt+xyrGhj+CVAfLGmYUjAwQIB/Kz9xAZdILOSEiS/lf+rPurzg
-XU3i6ZHMTICog9a5k05XBU2gzbh8otTG6/czRn2hAqUTLqeNBb98YXBLEj0D8gC/
-Nl124155fffaxcfZTMrQp1iJ9Z66JUx0kWxPXwIDAQABoB0wGwYJKoZIhvcNAQkH
-MQ4TDGFiYzEyMzMyMWNiYTANBgkqhkiG9w0BAQsFAAOCAQEAT1nR6EHMNOeASrog
-QFavjMK6bI4IM5Dc3m7kUS2V7dbpinH8No2MawvLxyyDDYIp7de2Lk4LzFN2Vmjj
-e7lr8yYC5ZoX6GbuvXEznnpcd7QWvoQxJ/ISWY2fgR8S9EFYiMaQ1oLh8aAWepHX
-AcFMUKc9HF8yWS/xIaVC8WaXBM9YnM5Ich9/KPAF9iQ3e/f0wltSmTpwL9rcYuA/
-kbaxBJRbzdYhN9JSAqhYidplcAQK4YUGtivkVoWxgoD9q0camegbF3AXuzrH1M6j
-xI2Za6PXlBy7TX1d0k9W1d924B3E5qxZiVQ7cBQes9EEF/bJVyKkyNsjF1LrU00G
-INsRUQ==
------END CERTIFICATE REQUEST-----
-```
+
+    -----BEGIN CERTIFICATE REQUEST-----
+    MIIDADCCAegCAQAwgZ0xCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlh
+    MRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRswGQYDVQQKExJNeSBBd2Vzb21lIENv
+    bXBhbnkxHTAbBgNVBAMTFHd3dy55b3VyLXdlYnNpdGUuY29tMSUwIwYJKoZIhvcN
+    AQkBFhZhZG1pbkB5b3VyLXdlYnNpdGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
+    AQ8AMIIBCgKCAQEA2V0dHAlFyLI/XaAfqmtdyq2K+iv/wEJycVYVTZ2a1X0Y2i+8
+    8dhXg3y1f79wCFpqRWdccjQG2HesKOxzvrnrPfCc93f7k2kuRDzivNacnOsMw19W
+    bVEcXU38qxnNMtJOqyYzl5Yh1VBojyTvuec3g/21IxWQGPV7QsZ6OAMkw09V8H/U
+    CCT2F+JkFPkP/QHt+xyrGhj+CVAfLGmYUjAwQIB/Kz9xAZdILOSEiS/lf+rPurzg
+    XU3i6ZHMTICog9a5k05XBU2gzbh8otTG6/czRn2hAqUTLqeNBb98YXBLEj0D8gC/
+    Nl124155fffaxcfZTMrQp1iJ9Z66JUx0kWxPXwIDAQABoB0wGwYJKoZIhvcNAQkH
+    MQ4TDGFiYzEyMzMyMWNiYTANBgkqhkiG9w0BAQsFAAOCAQEAT1nR6EHMNOeASrog
+    QFavjMK6bI4IM5Dc3m7kUS2V7dbpinH8No2MawvLxyyDDYIp7de2Lk4LzFN2Vmjj
+    e7lr8yYC5ZoX6GbuvXEznnpcd7QWvoQxJ/ISWY2fgR8S9EFYiMaQ1oLh8aAWepHX
+    AcFMUKc9HF8yWS/xIaVC8WaXBM9YnM5Ich9/KPAF9iQ3e/f0wltSmTpwL9rcYuA/
+    kbaxBJRbzdYhN9JSAqhYidplcAQK4YUGtivkVoWxgoD9q0camegbF3AXuzrH1M6j
+    xI2Za6PXlBy7TX1d0k9W1d924B3E5qxZiVQ7cBQes9EEF/bJVyKkyNsjF1LrU00G
+    INsRUQ==
+    -----END CERTIFICATE REQUEST-----
+
 
 ## Get the Certificate from the Issuer
 
@@ -132,13 +131,13 @@ So, here's where it gets fun... Your certs will have been issued as `.crt` files
 
 We need to encode both certificates AND the private key from step 1:
 
-```
-openssl rsa -in your_website_name.key -text > your_website_name.key.pem
-openssl x509 -inform PEM -in your_website_name.crt > your_website_name.crt.pem
-openssl x509 -inform PEM -in your_website_name_root.crt > your_website_name_root.crt.pem
 
-# replace the names... of course
-```
+    openssl rsa -in your_website_name.key -text > your_website_name.key.pem
+    openssl x509 -inform PEM -in your_website_name.crt > your_website_name.crt.pem
+    openssl x509 -inform PEM -in your_website_name_root.crt > your_website_name_root.crt.pem
+
+    # replace the names... of course
+
 
 Almost there.. now we just need to upload these to amazon's ELB
 
