@@ -17,10 +17,10 @@ A lot of friends and colleague over the years have asked me to explain this to t
 
 Most of this stuff applies to tech startups but it can be applied broadly to any industry or position at any company, big or small. Its just that most of my experience here is in the tech startup world so my examples will all be from that point of view.
 
-##Options vs RSU's
+## Options vs RSU's
 What are options and what are RSU's? Great question!
 
-###Options
+### Options
 Stock options are the traditional form of equity compensation and are the most common for private companies like startups. Options are an "Option" to buy stock at a set price (called the strike price). If you are awarded 1,000 shares with a strike price of $1.00, you will be able to buy those options for $1,000 at anytime. The term for this is "Excersizing" your option.
 
 So if the company's valuation dictates the stock price to be valued at $2, you will be able to purchase the shares for $1,000 and then immediately sell those shares for $2.00/share netting you $1,000 in profit!
@@ -31,12 +31,12 @@ If your options strike price is higher than the current value of the stock, you 
 
 Most investment companies will handle it all for you by exercising the options and depositing the profit in your account. Talk to a financial advisor before doing this because taxes can be a bitch!
 
-###RSU's
+### RSU's
 RSU's are getting popular with publicly traded companies because the carrot is much more attractive. RSU stands for "Restricted Stock Unit" and boils down to raw stock on award date. If you are granted 1,000 shares of RSU's, you are given 1,000 shares (less income taxes on the value of the stock at the vest date). If you sell those shares when the stock price is $2, you will get $2,000 in your pocket.
 
 The trick with this is that they are income and taxed as income. So if you vest 1,000 shares and the price per share is $2 on the day of vest, the company usually automatically sells enough to cover paying the taxes on the $2,000 income provided by the vest. So you may have vested 1,000 shares but your account will show 800 because 200 will have been sold to pay for the income tax associated with the stock given. The gotcha here is that when you sell the shares, any gains over that initial value will also be taxed as capital gains... Again, talk to a financial advisor about this before you start selling shares and buying cars!
 
-##Calculating the Points
+## Calculating the Points
 First things first, we need to figure out what our equity position in the company will be. Is 10,000 shares a lot? How about a million? Just because a company is offering you a million shares, it doesn't mean you are getting all that much if the company has 10 billion shares allocated.
 
 So your first question should always be:
@@ -57,7 +57,7 @@ So in our million shares example, you can see we have 0.01% of the company being
 
 Outstanding stock will be closer to what your stock is worth in the real world but is prone to dilution, whereas authorized stock is usually a constant and will illustrate a stable number that should be pretty immune to dilution. Authorized stock based calculations are really a worst case scenario. Knowing both numbers can also help reveal how leveraged a company is because you can see how much of the pie has been given out... but we'll keep that for another post.
 
-##How much money is the package worth?
+## How much money is the package worth?
 This is a pretty tricky question because you probably aren't getting fully vested equity. (if you're getting that, congrats! You've found a unicorn). You're probably getting a package with a 3 to 4 year vest period... more on this later. First we'll start with converting points to monetary value.
 
 Now that we know the point value of the offering, let's turn that into a monetary value. For this you'll need the second question you should ask:
@@ -74,7 +74,7 @@ $ 500,000,000 * 0.0001 = $50,000 (not bad, not great.. but not bad)
 
 This is further complicated by the vest schedule.. Remember, you will get this amount over a period of time (usually 4 years on a quarterly or yearly basis). This may mean that you make more money or lose it all depending on the company and how long you stay there. If you amortize $50,000 over a 4 year period you end up with $12,500 a year. (50,000 / 4 = 12,500) This doesn't consider valuation changes and fluctuations in stock price. Will the company value go up, down, or stay the same when the time comes to cash out? That's for you to try and predict. Does it feel like gambling yet?
 
-##Dilution
+## Dilution
 Dilution is simple. Its the devaluation of your equity position. Dilution events happen when the percentage of the stock gets reduced by additional investments (usually from more rounds in funding). Remember, each round of investment means that more investors are buying preferred stock and cutting to the front of the line for payouts when the company is acquired or goes public or pays dividends.
 
 Its probably good to know what preferred stock vs common stock is. [Check this out for a quick rundown](http://www.investopedia.com/ask/answers/182.asp).
@@ -83,7 +83,7 @@ Dilution usually happens when the company issues more stock out of the authorize
 
 You have no control over this (usually) and its something that can really cut into how much you get when the time comes to cash yourself out. You just need to ask yourself, "how many more rounds of funding will this company need before they are generating their own cash?"
 
-##Acquisitions
+## Acquisitions
 Acquisitions are good right? Well not always. You need to know how unvested stock works when the company you work for is acquired.
 
 Let's say you were granted 1 million options with a 4 year vesting schedule and a cliff at 1 year. (This means that you'll get the first 25% of the options at your 1 year anniversary)
@@ -102,7 +102,7 @@ Example: If you owned 25% of the company and the company was acquired for $100 m
 
 Bottom line... try like hell to get an acceleration clause in the event the company is acquired.
 
-##Conclusion
+## Conclusion
 Equity is a tricky place where things can get pretty shady pretty quick. Know the numbers and do the math to get the full story so you can make an educated decision.
 
 Someone once said "equity offers are like mystery boxes, you get to open one after years of work, but investors get to open many of them a year". This always stuck with me. Remember, you're the one on the short end of the stick and you always need to know how short the stick is.
