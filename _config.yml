@@ -24,7 +24,7 @@ vimeo_username: parabuzzle
 # Build settings
 markdown: redcarpet
 permalink: pretty
-highlighter: pygments
+highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
