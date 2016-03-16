@@ -1,8 +1,9 @@
 ---
 
 layout: post
-title:  Understanding Equity Offers for Engineers
+title:  Understanding Equity Offers for Mere Mortals
 date:   2016-03-14 12:00:00
+redirect_from: "education/2016/03/14/understanding-equity-offers-for-enginee/"
 categories: Education
 preview: A lot of friends and colleague over the years have asked me to explain this to them and I figured it was time to write a blog post about it so that more people can see how I personally approach equity offerings presented with an employment contract.
 og_type: article
