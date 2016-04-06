@@ -57,4 +57,3 @@ threads.each do |thread|
 		end
 	end
 end
-
