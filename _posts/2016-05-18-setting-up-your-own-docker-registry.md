@@ -12,19 +12,19 @@ disqus_id: 16
 If you want to run your own Docker Registry using registry-v2 this post is for you! Its pretty simple but there are a few gotchas you need to know about. The purpose of this blog post is to help you past the problems so you experience the joy of setting up and having your own private docker registry at little to no cost (depending on if you want to purchase SSL certs or not.)
 
 
-#### Assumptions
+### Assumptions
 
   * You are doing this on a mac
   * You have installed the latest Docker Toolkit
   * You are using `docker-machine`
   * You know how to use `docker` & `docker-machine`
 
-#### Let's Get Started
+### Let's Get Started
 
 In this post I'm going to use my own versions of the containers because I've added some things that make this way easier. Feel free to explore the GitHub repositories and make your own or fork if you like :)
 
 
-Let's look at the `Dockerfile` of my version of the registry:
+Let's look at the `Dockerfile` of [my version](https://hub.docker.com/r/parabuzzle/registry) of the registry:
 
 ~~~
 FROM registry:2.4.0
@@ -84,7 +84,7 @@ docker tag parabuzzle/registry:2.4.0.0 localhost:5000/registry:2.4.0.0
 docker push localhost:5000/registry:2.4.0.0
 ~~~
 
-Let's slap a frontend on this so we can browse our registry... for this we'll use my Crane Operator app:
+Let's slap a frontend on this so we can browse our registry... for this we'll use my [Crane Operator](https://hub.docker.com/r/parabuzzle/craneoperator) app:
 
 ~~~
 docker run -d \
