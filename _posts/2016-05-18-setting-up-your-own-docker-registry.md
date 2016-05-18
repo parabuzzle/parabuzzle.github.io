@@ -13,6 +13,14 @@ If you want to run your own Docker Registry using registry-v2 this post is for y
 
 So let's get started...
 
+#### Assumptions
+
+  * You are doing this on a mac
+  * You have installed the latest Docker Toolkit
+  * You are using `docker-machine`
+  * You know how to use `docker` & `docker-machine`
+
+
 In this post I'm going to use my own versions of the containers because I've added some things that make this way easier. Feel free to explore the GitHub repositories and make your own or fork if you like :)
 
 
