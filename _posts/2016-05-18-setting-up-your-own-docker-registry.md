@@ -11,7 +11,6 @@ disqus_id: 16
 
 If you want to run your own Docker Registry using registry-v2 this post is for you! Its pretty simple but there are a few gotchas you need to know about. The purpose of this blog post is to help you past the problems so you experience the joy of setting up and having your own private docker registry at little to no cost (depending on if you want to purchase SSL certs or not.)
 
-So let's get started...
 
 #### Assumptions
 
@@ -20,6 +19,7 @@ So let's get started...
   * You are using `docker-machine`
   * You know how to use `docker` & `docker-machine`
 
+#### Let's Get Started
 
 In this post I'm going to use my own versions of the containers because I've added some things that make this way easier. Feel free to explore the GitHub repositories and make your own or fork if you like :)
 
