@@ -10,7 +10,8 @@ permalink: /projects/
     StockMarkit is a ruby library for interacting with the <a href="http://dev.markitondemand.com/MODApis/" target="_blank">Markit On Demand apis</a>. It covers stock lookup, quotes, and charting in an intuitive library that's easy to use.
     <div class="link">
       <a target="_blank" href="http://www.rubydoc.info/github/parabuzzle/stock-markit/master">Docs</a> |
-      <a target="_blank" href="https://github.com/parabuzzle/stock-markit">Code</a>
+      <a target="_blank" href="https://github.com/parabuzzle/stock-markit">Code</a> |
+      <a target="_blank" href="http://rubygems.org/gems/stock-markit">Gem</a>
     </div>
   </div>
 </div>
