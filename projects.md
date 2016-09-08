@@ -5,6 +5,17 @@ permalink: /projects/
 ---
 
 <div class="project-box">
+  <h3><img src="/img/ruby-icon.png" width="50px"/> <a target="_blank" href="https://github.com/parabuzzle/stock-markit">StockMarkit</a></h3>
+  <div class="description">
+    StockMarkit is a ruby library for interacting with the <a href="http://dev.markitondemand.com/MODApis/" target="_blank">Markit On Demand apis</a>. It covers stock lookup, quotes, and charting in an intuitive library that's easy to use.
+    <div class="link">
+      <a target="_blank" href="http://www.rubydoc.info/github/parabuzzle/stock-markit/master">Docs</a> |
+      <a target="_blank" href="https://github.com/parabuzzle/stock-markit">Code</a>
+    </div>
+  </div>
+</div>
+
+<div class="project-box">
   <h3><img src="/img/docker-logo.png" width="50px"/> <a target="_blank" href="http://hub.docker.com/r/parabuzzle/craneoperator/">CraneOperator</a></h3>
   <div class="description">
   Just as crane operators can see where all the containers are in the shipyard, CraneOperator gives you a simple web interface for browsing around a Docker Registry running version 2.0+
