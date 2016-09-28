@@ -33,7 +33,7 @@ end
 
 # Signal Handling
 Signal.trap("TERM") { shutdown = true }
-Signal.trap("KILL") { shutdown = true }
+#Signal.trap("KILL") { shutdown = true }
 Signal.trap("INT")  { shutdown = true }
 
 # Main Loop
