@@ -16,7 +16,7 @@ Today I had a strange problem. I needed to work with an internal git repo behind
 <b>note:</b> git supports HTTP proxies out-of-the-box for <a href="http://www.aireadfun.com/blog/2013/08/27/using-git-through-a-socks-proxy-or-ssh-tunnel/" target="_blank" alt="Using Git Through a SOCKS Proxy">HTTP based repos</a>
 </div>
 
-Anyway, there are a ton of solutions on the internet for how to do this sort of thing, but most of them are very confusing or require additional software to accomplish SSH based repo proxy-ing. 
+Anyway, there are a ton of solutions on the internet for how to do this sort of thing, but most of them are very confusing or require additional software to accomplish SSH based repo proxy-ing.
 
 ![better way](/img/postimgs/splat.gif)
 
@@ -26,7 +26,7 @@ There is a better way and I'm going to show you how I did it with minimal effort
 
 ### 1. Setup Your Socks Proxy
 
-If you didn't know this already, you can use OpenSSH to create a SOCKS proxy. 
+If you didn't know this already, you can use OpenSSH to create a SOCKS proxy.
 
 *(this is most useful for web browsing like you're on the box you connected to via SSH)*
 
