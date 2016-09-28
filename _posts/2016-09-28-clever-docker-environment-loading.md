@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  My Clever Docker Environment Loading Solution using Vault
+title:  My Clever Docker Environment Loading Solution Using Vault
 date:   2016-09-28 12:00:00
 categories: Docker
 preview: The Problem, You have a dockerized application that needs 50+ environment variables that are different based on the execution environment. Let me explain how I made this completely painless with some clever design and hashicorp's vault
@@ -30,9 +30,9 @@ The idea here is that we will save our super secret secrets namespaced by runtim
 
 Example:
 
-~~~bash
-/secret/staging/postgres/password => The staging postgres password
-/secret/production/postgres/password => The production postgres password
+~~~ bash
+/secret/staging/postgres/password #=> The staging postgres password
+/secret/production/postgres/password #=> The production postgres password
 ~~~
 
 This way, we can apply the passed in environment to the path and get the correct secret.
@@ -70,7 +70,7 @@ This script has a little magic built in but essentially what its doing is verify
 
 Example:
 
-~~~
+~~~ bash
 with_app_env bash
 ~~~
 
@@ -78,7 +78,7 @@ This will load the custom environment and then run a bash shell inside of it.
 
 We'll accomplish this as the default for the container by setting the entrypoint as this script and the cmd as bash.
 
-~~~
+~~~ Dockerfile
 ENTRYPOINT [ "with_app_env" ]
 CMD [ "bash" ]
 ~~~
@@ -87,7 +87,7 @@ CMD [ "bash" ]
 
 The final bit is the custom environment file. Inside of it we can use our Vault Environment script to load things:
 
-~~~
+~~~ bash
 export PG_USER=$( vaultenv postgres/user )
 export PG_PASS=$( vaultenv postgres/password )
 ~~~

@@ -1,4 +1,4 @@
-.highlight { background-color: #161616; color: #E6E1DC; }
+.highlight { background-color: #efefef; color: #990033; }
 .highlight .ge { font-style: italic; }
 .highlight .gs { font-weight: bold; }
 .highlight .c { color: #AD2EA4; font-style: italic; }
@@ -6,38 +6,38 @@
 .highlight .c1 { color: #AD2EA4; font-style: italic; }
 .highlight .cs { color: #AD2EA4; font-style: italic; }
 .highlight .cm { color: #AD2EA4; font-style: italic; }
-.highlight .m { color: #58C554; }
-.highlight .mf { color: #58C554; }
-.highlight .mi { color: #58C554; }
-.highlight .mo { color: #58C554; }
-.highlight .se { color: #FDC251; }
-.highlight .kc { color: #FDC251; }
-.highlight .k { color: #1EDAFB; }
+.highlight .m { color: #8466ff; }
+.highlight .mf { color: #8466ff; }
+.highlight .mi { color: #8466ff; }
+.highlight .mo { color: #8466ff; }
+.highlight .se { color: #ff5d66; }
+.highlight .kc { color: #ff5d66; }
+.highlight .k { color: #1e92fb; }
 .highlight .kd { color: #FC6F09; }
 .highlight .kn { color: #FC6F09; }
-.highlight .kt { color: #1EDAFB; }
-.highlight .s { color: #8DFF0A; }
-.highlight .sb { color: #8DFF0A; }
-.highlight .sc { color: #8DFF0A; }
-.highlight .sd { color: #8DFF0A; }
-.highlight .s2 { color: #8DFF0A; }
-.highlight .sh { color: #8DFF0A; }
-.highlight .si { color: #8DFF0A; }
-.highlight .sx { color: #8DFF0A; }
-.highlight .sr { color: #8DFF0A; }
-.highlight .s1 { color: #8DFF0A; }
-.highlight .ss { color: #8DFF0A; }
-.highlight .na { color: #FFFF89; }
+.highlight .kt { color: #1e92fb; }
+.highlight .s { color: #06f; }
+.highlight .sb { color: #06f; }
+.highlight .sc { color: #06f; }
+.highlight .sd { color: #06f; }
+.highlight .s2 { color: #06f; }
+.highlight .sh { color: #06f; }
+.highlight .si { color: #06f; }
+.highlight .sx { color: #06f; }
+.highlight .sr { color: #06f; }
+.highlight .s1 { color: #06f; }
+.highlight .ss { color: #06f; }
+.highlight .na { color: #ff9366; }
 .highlight .nc { color: #FC83FF; }
-.highlight .no { color: #FDC251; }
+.highlight .no { color: #06f; }
 .highlight .nf { color: #FC6F09; }
 .highlight .nt { color: #FC6F09; }
-.highlight .nv { color: #E6E1DC; }
+.highlight .nv { color: #990033; }
 .highlight .ow { color: #FC6F09; }
-.highlight .o { color: #FC6F09; }
-.highlight .n { color: #E6E1DC; }
-.highlight .nl { color: #E6E1DC; }
-.highlight .nn { color: #E6E1DC; }
-.highlight .nx { color: #E6E1DC; }
-.highlight .bp { color: #E6E1DC; }
-.highlight .p { color: #E6E1DC; }
+.highlight .o { color: #0042ff; }
+.highlight .n { color: #990033; }
+.highlight .nl { color: #990033; }
+.highlight .nn { color: #990033; }
+.highlight .nx { color: #990033; }
+.highlight .bp { color: #990033; }
+.highlight .p { color: #990033; }
