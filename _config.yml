@@ -20,15 +20,25 @@ flickr_username: parabuzzle
 instagram_username: parabuzzle
 vimeo_username: parabuzzle
 
+kramdown:
+  input: GFM
+  hard_wrap: false
+  math_engine: mathjax
+  auto_ids: true
 
 # Build settings
-markdown: kramdown
-permalink: pretty
+markdown:    kramdown
+permalink:   pretty
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
+gist:
+  noscript: false
+
 gems:
   - jekyll-redirect-from
-  - jemoji
   - jekyll-feed
+  - jekyll-coffeescript
+  - jemoji
+  - jekyll-paginate
