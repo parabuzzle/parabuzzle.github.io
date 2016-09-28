@@ -20,7 +20,7 @@ module EmojiForJekyll
 
       site.pages.each { |p| substitute(p, additional_keys) }
 
-      site.posts.each { |p| substitute(p, additional_keys) }
+      site.posts.docs.each { |p| substitute(p, additional_keys) }
     end
 
     private
