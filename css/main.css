@@ -180,8 +180,8 @@ a:visited { color: #205caa; }
 /* Home styles */
 /* ----------------------------------------------------------*/
 
-.home h1 { 
-  margin-bottom: 25px; 
+.home h1 {
+  margin-bottom: 25px;
   font-size:32px;
 }
 
@@ -287,13 +287,13 @@ a:visited { color: #205caa; }
 
 .post pre,
 .post code {
-  border: 1px solid #000;
-  background-color: #333;
-  color:#FF9900;
+  border: 1px solid #bbb;
+  background-color: #eee;
+  color:#990033;
   padding: 8px 12px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 2px;
   font-size: 15px;
   overflow:auto;
 }
