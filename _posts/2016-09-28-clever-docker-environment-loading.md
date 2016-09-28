@@ -47,7 +47,29 @@ This is a wrapper library for working with the vault that applies some automatic
 
 <script src="https://gist.github.com/parabuzzle/2fce63fb4879fd19d01fa77061751707.js"></script>
 
-Basically this library adds the ability to run things like `vault.read('postgres/password')` which will fetch the value from vault at `/secret/development/postgres/password`. You can also do a `vault.write('secret_key', 'secret_value')` which will write the `secret_value` to `/secret/development/secret_key`.
+Basically this library adds the ability to run things like
+
+~~~ ruby
+vault.read('postgres/password')
+~~~
+
+which will fetch the value from vault at
+
+~~~
+/secret/development/postgres/password
+~~~
+
+You can also do a
+
+~~~ ruby
+vault.write('secret_key', 'secret_value')
+~~~
+
+which will write the value to the appropriate key
+
+~~~
+/secret/development/secret_key #=> secret_value
+~~~
 
 This library wraps all the path handling for you. We will use this library to create a script we use for loading environment variables.
 
@@ -66,7 +88,7 @@ We'll need a script that we'll set as the container's entrypoint that will load 
 
 <script src="https://gist.github.com/parabuzzle/e525dc564d7fc8bf83d189ae919ae56b.js"></script>
 
-This script has a little magic built in but essentially what its doing is verifying the `VAULT_TOKEN` is set and then sources an custom environment file and then passes off to whatever arguments are provided.
+This script has a little magic built in but essentially what its doing is verifying the `VAULT_TOKEN` is set and then sources a custom environment file and then passes off to whatever arguments are provided.
 
 Example:
 
@@ -76,7 +98,7 @@ with_app_env bash
 
 This will load the custom environment and then run a bash shell inside of it.
 
-We'll accomplish this as the default for the container by setting the entrypoint as this script and the cmd as bash.
+We'll accomplish this as the default for the container by setting the `entrypoint` as this script and the `cmd` as bash.
 
 ~~~ Dockerfile
 ENTRYPOINT [ "with_app_env" ]
