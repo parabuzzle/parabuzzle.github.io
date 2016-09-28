@@ -8,7 +8,7 @@ og_description: The Problem, You have a dockerized application that needs 50+ en
 disqus_id: 17
 ---
 
-##The Problem
+## The Problem
 
 You have a dockerized application that needs 50+ environment variables that are different based on the execution environment (ie: production, staging, mobile, etc).
 
@@ -20,7 +20,7 @@ The first solution would be to pass them in using the `-e` flag. But that can ge
 
 There are many solutions for interacting with vault inside your application directly but since you followed the 12factor design pattern and put everything into your environment its probably going to take a bit of work to rewrite your secrets loading to use the vault directly via your application. And why? You've already done the most versatile thing by loading through your environment? Plus, what happens when a new & better wizzbang way of saving and fetching secrets comes out? Then what? Are you going to do all that work again?! No way!
 
-##My solution
+## My solution
 
 **Load the environment at run time from vault.** It gives you the flexibility of differing credentials based on runtime environment that are secured by the Vault **without the headache** of changing your application code or getting locked into a single solution.
 
@@ -37,11 +37,11 @@ Example:
 
 This way, we can apply the passed in environment to the path and get the correct secret.
 
-###The Parts
+### The Parts
 
 You're going to need a few scripts/libraries. Here are the ones I've built (feel free to use them or adapt it).
 
-####The Vault Loader
+#### The Vault Loader
 
 This is a wrapper library for working with the vault that applies some automatic namespacing.
 
@@ -52,7 +52,7 @@ Basically this library adds the ability to run things like `vault.read('postgres
 This library wraps all the path handling for you. We will use this library to create a script we use for loading environment variables.
 
 
-####Vault Environment Script
+#### Vault Environment Script
 
 Now we'll use that libary to create a CLI for fetching keys.
 
@@ -60,7 +60,7 @@ Now we'll use that libary to create a CLI for fetching keys.
 
 We would put this script in to a `bin` directory and make it executable. Then we could just call it like this: `vaultenv postgres/password` and it will return the value from `/secret/development/postgres/password`.
 
-####The Docker Entrypoint
+#### The Docker Entrypoint
 
 We'll need a script that we'll set as the container's entrypoint that will load the environment and then pass off to a new shell with that environment
 
@@ -83,7 +83,7 @@ ENTRYPOINT [ "with_app_env" ]
 CMD [ "bash" ]
 ~~~
 
-####The Custom Environment File
+#### The Custom Environment File
 
 The final bit is the custom environment file. Inside of it we can use our Vault Environment script to load things:
 
@@ -93,7 +93,7 @@ export PG_PASS=$( vaultenv postgres/password )
 ~~~
 
 
-###Wire it Together
+### Wire it Together
 
 Now we can wire it all together with a Dockerfile. Once we create this container, we would build all of our applications off of this container and like magic, our application containers now only need the 2 required variables (`VAULT_TOKEN` & `APP_ENV`) at runtime to set everything up!
 
