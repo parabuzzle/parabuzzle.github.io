@@ -13,7 +13,9 @@ So lets jump right in shall we?
 
 I want to make a message sorter for dogstatd JSON objects that are flowing through the Kafka system. This adds some complexity from all the examples on the interwebs because we need to deserialize JSON, do something with the data, and then reserialize it and push it down to other topics. All the examples relating to JSON are confusing and over burdened with custom objects... this will be much simpler, I promise. To do sorting, I want to use the `filter` method and the `branch` method, so in this example we'll be using both of those methods and I'll show you how to use them for message sorting.
 
-First things first, lets get a running Kafka locally. I'm a docker fan so I suggest using the spotify/kafka container to do the magic for you. The nice thing about the spotify/kafka container is that it is self contained with zookeeper and Kafka in the same container.
+_by the way, `Serdes` is a term for "Serializer" - "Deserializer". Its a fancy streaming serialization scheme... you should read up on it if you are unfamiliar with it: [https://en.wikipedia.org/wiki/SerDes](https://en.wikipedia.org/wiki/SerDes)_
+
+First things first, lets get a running Kafka locally. I'm a docker fan so I suggest using the `spotify/kafka` container to do the magic for you. The nice thing about the `spotify/kafka` container is that it is self contained with zookeeper and Kafka in the same container.
 
 ~~~
 docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip \`docker-machine active\`` --env ADVERTISED_PORT=9092 spotify/kafka
@@ -119,21 +121,21 @@ public class MessageSorter {
     props.put(StreamsConfig.KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
     props.put(StreamsConfig.VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
 
-    // Reset to the earliest position so we can reprocess the messags for the demo
+    // Reset to the earliest position so we can reprocess the messages for the demo
     props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
     // load a simple json serializer
     final Serializer<JsonNode> jsonSerializer = new JsonSerializer();
     // load a simple json deserializer
-        final Deserializer<JsonNode> jsonDeserializer = new JsonDeserializer();
-        // use the simple json serializer and deserialzer we just made and load a Serde for streaming data
-        final Serde<JsonNode> jsonSerde = Serdes.serdeFrom(jsonSerializer, jsonDeserializer);
+    final Deserializer<JsonNode> jsonDeserializer = new JsonDeserializer();
+    // use the simple json serializer and deserialzer we just made and load a Serde for streaming data
+    final Serde<JsonNode> jsonSerde = Serdes.serdeFrom(jsonSerializer, jsonDeserializer);
 
-        // Setup a string Serde for the key portion of the messages
-        final Serde<String> stringSerde = Serdes.String();
+    // Setup a string Serde for the key portion of the messages
+    final Serde<String> stringSerde = Serdes.String();
 
-        // Setup a builder for the streams
-      KStreamBuilder builder = new KStreamBuilder();
+    // Setup a builder for the streams
+    KStreamBuilder builder = new KStreamBuilder();
 
     // Just so we know everything is working.. let's report that we are about to start working
     System.out.println("Starting Sorting Job");
@@ -165,8 +167,8 @@ public class MessageSorter {
 
     // This Predicate is checking if the metrics object is of the type "Gauge"
     Predicate<String, JsonNode> isGauge = (k, v) ->
-      v.path("type")     // Read the value of "type" from the json object
-      .asText()          // Turn it into a String -> This is a gotcha for newbies like me...
+      v.path("type")       // Read the value of "type" from the json object
+      .asText()            // Turn it into a String -> This is a gotcha for newbies like me...
       .equals("gauge");    // Return a boolean of what we want
 
 
@@ -193,7 +195,7 @@ public class MessageSorter {
     metricTypes[0].to(stringSerde, jsonSerde, "gauges");
     metricTypes[1].to(stringSerde, jsonSerde, "counters");
 
-    // Now lets user that builder and the props we set to setup a streams object
+    // Now lets use that builder and the props we set to setup a streams object
     KafkaStreams streams = new KafkaStreams(builder, props);
 
     // Start the streaming processor
