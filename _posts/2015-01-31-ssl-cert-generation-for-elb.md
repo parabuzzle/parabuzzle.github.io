@@ -14,7 +14,7 @@ After doing a security audit of our webapp, we discovered that our SSL certs and
 
 You can check your site right now using [www.ssllabs.com](http://www.ssllabs.com/ssltest)... here's our score:
 
-<img width="800" src="/img/ssllabs_b.png"/>
+<img class="img-responsive" src="/img/ssllabs_b.png"/>
 
 SSL cert generation can be a bit daunting for the uninitiated but if you use Linux or a Mac, I assure you we can get through it here if you follow these simple steps. :smile:
 
@@ -121,7 +121,7 @@ You should receive 2 certs from your issuer. One is your actual Certificate and 
 
 If you don't have your chain setup properly you will see this error from SSL Labs:
 
-<img src="/img/chain.png" width="800"/>
+<img src="/img/chain.png" class="img-responsive"/>
 
 *Note: if the issuer gives you the option, you will need the X.509 version of the certificates for the next steps*
 
@@ -146,7 +146,7 @@ Almost there.. now we just need to upload these to amazon's ELB
 
 Paste the contents of the 3 PEM files you just created into their respective text boxes:
 
-<img width="800" src="/img/elb.png"/>
+<img class="img-responsive" src="/img/elb.png"/>
 
 Click save and you're done!
 
@@ -169,4 +169,4 @@ You should have:
 
 ## Oh, and don't forget to check your awesomeness on ssllabs
 
-<img src="/img/ssllab_yay.png" width="800"/>
+<img src="/img/ssllab_yay.png" class="img-responsive"/>

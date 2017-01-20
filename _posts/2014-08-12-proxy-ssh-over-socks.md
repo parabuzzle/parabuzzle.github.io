@@ -18,7 +18,7 @@ Today I had a strange problem. I needed to work with an internal git repo behind
 
 Anyway, there are a ton of solutions on the internet for how to do this sort of thing, but most of them are very confusing or require additional software to accomplish SSH based repo proxy-ing.
 
-![better way](/img/postimgs/splat.gif)
+<img class="img-responsive" src="/img/postimgs/splat.gif"/>
 
 **THERE MUST BE A BETTER WAY... right?**
 

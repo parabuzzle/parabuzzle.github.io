@@ -13,7 +13,7 @@ If you've created Docker containers and put them on the central registry then yo
 
 What do I mean by "wanting more"? Well, first of all, the automated builds are great if you want to keep all of your iterations on the `latest` tag. Which for most, is exactly what you will want. You then manually push named tags (such as `0.1` or `1.0`) or, alternatively tag the release on GitHub and go and update the build settings to build that new tag and map that Git tag to your Docker tag. For most projects this is exactly what you want to do. There is still the manual step of logging into DockerHub and updating the build settings with the new tag which is kind of annoying but not a show stopper.
 
-<img width="750" src="/img/postimgs/automated_build.png"/>
+<img class="img-responsive" src="/img/postimgs/automated_build.png"/>
 
 What this should really be (Docker, pay attention), is automatic!! Yea, it should build all Git tags automatically unless overridden. Or, even better, a regex would be awesome. The build settings should let me say, "build every tag that matches `release-(.*)` as `$1`" ... wouldn't that be great? Yea, it doesn't do that. (hint hint) but I digress...
 

@@ -50,7 +50,7 @@ bin/kafka-run-class.sh com.mikeheijmans.kafka.playground.MessageSorter
 
 That will copy all messages that have a hostname of `mockedhost1.mikeheijmans.com` to a topic called `firsthost` and it will also send a copy of messages that are of a metric type of `gauge` to a `gauges` topic and of type `counter` to a `counters` topic.
 
-<img width="800" src="/img/kafka-streams.png"/>
+<img class="img-responsive" src="/img/kafka-streams.png"/>
 
 So let's see how all this works.
 
