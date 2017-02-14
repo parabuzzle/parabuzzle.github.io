@@ -5,7 +5,7 @@ permalink: /projects/
 ---
 
 <div class="project-box">
-  <h3><img src="/img/docker-logo.png"/> <a target="_blank" href="https://hub.docker.com/r/parabuzzle/linky/">Linky</a></h3>
+  <h3><img src="/img/docker-logo.png" width="50px"/> <a target="_blank" href="https://hub.docker.com/r/parabuzzle/linky/">Linky</a></h3>
   <div class="description">
     Linky is your friendly intranet URL shortener. Its made to be simple to setup, simple to use, and simply useful. Linky is based off of a number of internal URL shorteners that exist in many large tech companies in the Silicon Valley.
     <div class="link">
