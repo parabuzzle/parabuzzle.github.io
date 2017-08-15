@@ -1,8 +1,12 @@
-
-
+<html>
+  <head>
+  <title>My Gym Stats</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 google.charts.load('current', {packages: ['corechart', 'line']});
 google.charts.setOnLoadCallback(drawBasic);
+google.charts.setOnLoadCallback(drawBench);
+google.charts.setOnLoadCallback(drawTricep);
 
 function drawBasic() {
 
@@ -20,14 +24,74 @@ function drawBasic() {
         },
         vAxis: {
           title: 'Weight'
-        }
+        },
+        pointSize: 5
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
       chart.draw(data, options);
     }
+
+function drawBench() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Weight');
+
+      data.addRows([
+        [1, 95], [2, 105], [3, 110], [4, 115]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Week'
+        },
+        vAxis: {
+          title: 'Weight'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('bench_stat'));
+
+      chart.draw(data, options);
+    }
+function drawTricep() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Weight');
+
+      data.addRows([
+        [1, 70], [2, 80], [3, 85], [4, 95]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Week'
+        },
+        vAxis: {
+          title: 'Weight'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('tricep_stat'));
+
+      chart.draw(data, options);
+    }
 </script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<div id="chart_div"></div>
-      
+  </head>
+  <body>
+    <div id="container" style="width: 960px; margin:auto;">
+       <h1>Weight</h1>
+       <i>Weekly stat taken on Monday after the gym session since the beginning of the vegitarian diet shift</i><br/>
+       <div id="chart_div"></div>
+       <h1>Benchpress Stats</h1>
+       <i>Weekly stat taken on Monday after the gym session since the beginning of the vegitarian diet shift</i><br/>
+       <div id="bench_stat"></div>
+       <h1>Tricep Pulls</h1>
+       <i>Weekly stat taken on Monday after the gym session since the beginning of the vegitarian diet shift</i><br/>
+       <div id="tricep_stat"></div>
+    </div>
+  </body>
+</html>
