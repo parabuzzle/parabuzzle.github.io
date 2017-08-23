@@ -15,7 +15,7 @@ function drawBasic() {
       data.addColumn('number', 'Weight');
 
       data.addRows([
-        [1, 228], [2, 226], [3, 224], [4, 221]
+        [1, 228], [2, 226], [3, 224], [4, 221], [5,223]
       ]);
 
       var options = {
@@ -40,7 +40,7 @@ function drawBench() {
       data.addColumn('number', 'Weight');
 
       data.addRows([
-        [1, 95], [2, 105], [3, 110], [4, 115]
+        [1, 95], [2, 105], [3, 110], [4, 115], [4, 125]
       ]);
 
       var options = {
@@ -49,7 +49,8 @@ function drawBench() {
         },
         vAxis: {
           title: 'Weight'
-        }
+        },
+        pointSize: 5
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('bench_stat'));
@@ -63,7 +64,7 @@ function drawTricep() {
       data.addColumn('number', 'Weight');
 
       data.addRows([
-        [1, 70], [2, 80], [3, 85], [4, 95]
+        [1, 70], [2, 80], [3, 85], [4, 95], [5, 100]
       ]);
 
       var options = {
@@ -72,7 +73,8 @@ function drawTricep() {
         },
         vAxis: {
           title: 'Weight'
-        }
+        },
+        pointSize: 5
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('tricep_stat'));
