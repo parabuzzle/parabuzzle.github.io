@@ -5,6 +5,22 @@ permalink: /projects/
 ---
 
 <div class="project-box">
+  <h3><img src="/img/pkg.png" width="50px"/> <a target="_blank" href="https://github.com/parabuzzle/idf_http_rest_client">ESP-IDF HTTP Rest Client</a></h3>
+  <div class="description">
+    Because the ESP-IDF provided client library is robust, it also means its a bit complicated and for most people, we only need some simple http operations for interacting with REST endpoints. You shouldn't need to know how to manage chunked vs non-chunked responses or how to construct the required connection config to post a json object. I just want the ENTIRE response body loaded in a buffer I provide to do with what I want. And i don't want to copy around 40 lines of code for every request to do it!<br/><br/>
+
+    I made this for me. If you find use in it, GREAT! If you want to improve it for you, EVEN BETTER!
+
+<div class="link">
+<a target="_blank" href="https://github.com/parabuzzle/idf_http_rest_client/blob/main/README.md">Docs</a> |
+<a target="_blank" href="https://github.com/parabuzzle/idf_http_rest_client">Code</a> |
+<a target="_blank" href="https://components.espressif.com/components/parabuzzle/http_rest_client">Espressif Component</a>
+</div>
+
+  </div>
+</div>
+
+<div class="project-box">
   <h3><img src="/img/docker-logo.png" width="50px"/> <a target="_blank" href="https://hub.docker.com/r/parabuzzle/linky/">Linky</a></h3>
   <div class="description">
     Linky is your friendly intranet URL shortener. Its made to be simple to setup, simple to use, and simply useful. Linky is based off of a number of internal URL shorteners that exist in many large tech companies in the Silicon Valley.
