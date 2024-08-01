@@ -14,15 +14,15 @@ _note: I happen to use Coralogix, but this should work with any observability pl
 
 The first thing we need to do is get you up to speed on the architecture of the project.
 
-1. **NextJS App(s)**: This is the front-end of the project. It's a collection of NextJS apps wrapped in a monorepo managed by Turborepo (https://turbo.build/) and are using the new App Router setup.
-1. **Vercel**: This is where the NextJS apps are deployed. Vercel (https://vercel.com/) is a great platform for deploying NextJS apps and I am in absolute love with it.
+1. **NextJS App(s)**: This is the front-end of the project. It's a collection of NextJS apps wrapped in a monorepo managed by Turborepo ([https://turbo.build/](https://turbo.build/)) and are using the new App Router setup.
+1. **Vercel**: This is where the NextJS apps are deployed. Vercel ([https://vercel.com/](https://vercel.com/)) is a great platform for deploying NextJS apps and I am in absolute love with it.
 1. **Serverless APIs**: These are the back-end of the project. They are a collection of AWS Lambdas that are deployed using the Serverless Framework (https://www.serverless.com/).
-1. **Mongo Atlas**: This is where the data is stored. It's a managed MongoDB service (https://www.mongodb.com/products/platform/atlas-database).
-1. **Coralogix**: This is the observability platform we are using. It's a great platform that supports OpenTelemetry, Logs, Anomaly detection, and so much more (https://coralogix.com/). I'm a massive fan and highly recommend it!
+1. **Mongo Atlas**: This is where the data is stored. It's a managed MongoDB service ([https://www.mongodb.com/products/platform/atlas-database](https://www.mongodb.com/products/platform/atlas-database)).
+1. **Coralogix**: This is the observability platform we are using. It's a great platform that supports OpenTelemetry, Logs, Anomaly detection, and so much more ([https://coralogix.com/](https://coralogix.com/)). I'm a massive fan and highly recommend it!
 
 All these pieces fit together like this:
 
-<img src="/img/postimgs/high-level.png" width="800" alt="High level architecture diagram"/>
+<img src="/img/postimgs/high-level.png" width="100%" alt="High level architecture diagram"/>
 
 We are using Coralogix Real User Monitoring (RUM) to track user interactions with the frontends which is executed from the client's browser and reports back to Coralogix.
 
@@ -38,7 +38,7 @@ Ok, now that you know the architecture, let's get into the details.
 
 The NextJS app router kind of flips a Javascript app on its head. Because NextJS supports Server-side Rendering (SSR) you can do things like fetch data before the page rendering and serving phase and that data is available to the page when it renders. This is great for performance, caching, and even gets around things like CORS issues, but it also means that the page is rendered on the server and then sent to the client. This means that the client-side code is not executed until the page is loaded on the client and we need to collect trace data from the SSR parts. This is the core of our issue. It wasn't super clear on how to get the trace data from the server-side code to Coralogix.
 
-<img src="/img/postimgs/app-router-flow.png" alt="App router Flow"/><br/>
+<img src="/img/postimgs/app-router-flow.png" width="100%" alt="App router Flow"/><br/>
 _(All the pink boxes are on Vercel servers and the green is executed on the client's browser)_
 
 We had trace spans from all the lambda functions but the root span started at the API call.
@@ -49,11 +49,11 @@ Stringing it together was a challenge in Coralogix. Plus we're missing a bunch o
 
 ## The Solution
 
-Vercel supports Opentelemtry but there's a little setup which is documented here: https://vercel.com/docs/observability/otel-overview
+Vercel supports Opentelemtry but there's a little setup which is documented here: [https://vercel.com/docs/observability/otel-overview](https://vercel.com/docs/observability/otel-overview)
 
 Despite being the "quick start" its still not clear on how to get the data out of Vercel and their in-built observability tools.
 
-I found that Checkly demystified much of the process here: https://www.checklyhq.com/docs/traces-open-telemetry/instrumenting-code/nextjs/
+I found that Checkly demystified much of the process here: [https://www.checklyhq.com/docs/traces-open-telemetry/instrumenting-code/nextjs/](https://www.checklyhq.com/docs/traces-open-telemetry/instrumenting-code/nextjs/)
 
 I encourage you to read their docs and understand what's going on, however, it doesn't explain the secret sauce to get it to communicate with Coralogix. So I'll summarize everything and show you what needs to be set and where.
 
@@ -143,7 +143,7 @@ So if you login to `https://my-awesome-app.app.coralogix.us` then your namespace
 
 Next we have `OTEL_EXPORTER_OTLP_HEADERS` which are headers sent to the endpoint. You must set the Authorization header and you set the value as `Bearer <CXToken>` where the `<CXToken>` is an api key for you account.
 
-Next we have the endpoint. This seems straight forward but Coralogix's documentation is a little confusing here. You can find the endpoints in the docs here: https://coralogix.com/docs/coralogix-endpoints/ and you can see under Opentelemetry is says for a US account it is `ingress.coralogix.us:443` This is true if you're using GRPC, but the GRPC stuff in vercel had tons of strange issues when I was working on this so I set it to use http by not setting the GRPC environment variable.
+Next we have the endpoint. This seems straight forward but Coralogix's documentation is a little confusing here. You can find the endpoints in the docs here: [https://coralogix.com/docs/coralogix-endpoints/](https://coralogix.com/docs/coralogix-endpoints/) and you can see under Opentelemetry is says for a US account it is `ingress.coralogix.us:443` This is true if you're using GRPC, but the GRPC stuff in vercel had tons of strange issues when I was working on this so I set it to use http by not setting the GRPC environment variable.
 
 So because we are not using the GRPC endpoint we need to add `/v1/traces` and the `https://` as shown in the example.
 
@@ -157,11 +157,11 @@ But now I want to set this up to do this from Vercel!
 
 This is super simple, all you need to do is go to your app's environment variables in the settings tab and set those environment variables. Once you've done
 
-<img src="/img/postimgs/vercel-settings.png" alt="Vercel Settings" width="800"/>
+<img src="/img/postimgs/vercel-settings.png" alt="Vercel Settings" width="100%"/>
 
 No just redeploy your app and BOOM! Traces! And Traces from the start of the request all the way to the database!
 
-<img src="/img/postimgs/trace-data.png" width="800" alt="Trace Data"/>
+<img src="/img/postimgs/trace-data.png" width="100%" alt="Trace Data"/>
 
 ## Things that still don't work
 
@@ -175,7 +175,7 @@ This means we have created a trace parent before RUM even exists. As of writing 
 
 But for now all of my RUM based spans look like this (sad panda):
 
-![/img/postimgs/rum-span.png](/img/postimgs/rum-span.png)
+<img src="/img/postimgs/rum-span.png" width="100%" alt="RUM Span"/>
 
 ### Database Info
 
@@ -185,7 +185,7 @@ I'm using the autoinstrumentation lambda layer provided by Coralogix and I think
 
 So all of my calls to Mongo Atlas now are just "TCP.connect"
 
-![/img/postimgs/database-no-work.png](/img/postimgs/database-no-work.png)
+<img src="/img/postimgs/database-no-work.png" width="100%" alt="Database yunowork?"/>
 
 ## Conclusion
 
