@@ -187,6 +187,14 @@ So all of my calls to Mongo Atlas now are just "TCP.connect"
 
 <img src="/img/postimgs/database-no-work.png" width="100%" alt="Database yunowork?"/>
 
+### Native Coralogix Log Support
+
+Today you can send logs from Vercel to Datadog by installing the plugin on vercel. There is no such thing for Coralogix. So I had to make a lambda function that accepts the Vercel log drains and transforms the logs into Coralogix logs to forward to their API. This was fine when Log Drains was in "beta" and it didn't cost anything, but now that its gone GA, I have to pay for Vercel Log Drains on my apps, then I have to pay for the lambda that is handling each log even (there are lots of logs), and then I have to pay for Coralogix to process it again! (also don't forget AWS network transfers.. etc)
+
+I'm not saying I don't want to pay for logs to go from Vercel to Coralogix, but I'm kind of paying a tax (in the form of my AWS account in the middle) on the extra steps. It would be a dream if Coralogix and Vercel got together and just made a direct plugin.
+
+For now, I'll just have to eat the cost of these transform lambda functions. (I may publish the code in the near future for others that want to do something similar)
+
 ## Conclusion
 
 In conclusion, it took a bit of googling, stringing documentation together, and a lot of experimentation to get this to work. But even though I spent an entire Sunday on this, I am happy I did. It's so nice to have all this data for these applications and I'm sure over time things will improve. Maybe a follow up post will happen when I figure out how to solve some of the last mile short falls mentioned here.
